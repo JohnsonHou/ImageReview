@@ -1,0 +1,17 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+
+    package="com.jchou.imagereview">
+
+    <application android:allowBackup="true" android:label="@string/app_name"
+        android:supportsRtl="true">
+
+        <activity android:name=".ui.ImagePagerActivity"
+            android:theme="@style/translucent"/>
+
+        <!-- Glide与OkHttp3集成 -->
+        <meta-data
+            android:name="com.jchou.imagereview.glide.OkHttpProgressGlideModule"
+            android:value="GlideModule" />
+    </application>
+
+</manifest>

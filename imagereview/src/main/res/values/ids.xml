@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="slider_content" type="id"/>
+    <item name="slider_panel" type="id"/>
+</resources>
