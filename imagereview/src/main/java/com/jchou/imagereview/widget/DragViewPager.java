@@ -136,8 +136,10 @@ public class DragViewPager extends ViewPager implements View.OnClickListener {
             case MotionEvent.ACTION_MOVE:
                 addIntoVelocity(ev);
                 int deltaY = (int) (ev.getRawY() - mDownY);
+                //手指往上滑动
                 if (deltaY <= DRAG_GAP_PX && currentStatus != STATUS_MOVING)
                     return super.onTouchEvent(ev);
+                //viewpager不在切换中，并且手指往下滑动，开始缩放
                 if (currentPageStatus != SCROLL_STATE_DRAGGING && (deltaY > DRAG_GAP_PX || currentStatus == STATUS_MOVING)) {
                     moveView(ev.getRawX(), ev.getRawY());
                     return true;
@@ -147,11 +149,12 @@ public class DragViewPager extends ViewPager implements View.OnClickListener {
             case MotionEvent.ACTION_CANCEL:
                 if (currentStatus != STATUS_MOVING)
                     return super.onTouchEvent(ev);
-                final float mUpX = ev.getRawX();//->mDownX
-                final float mUpY = ev.getRawY();//->mDownY
+                final float mUpX = ev.getRawX();
+                final float mUpY = ev.getRawY();
 
                 float vY = computeYVelocity();//松开时必须释放VelocityTracker资源
-                if (vY >= 1500 || Math.abs(mUpY - mDownY) > screenHeight / 4) {//速度有一定快，或者移动位置超过屏幕一半，那么释放
+                if (vY >= 1200 || Math.abs(mUpY - mDownY) > screenHeight / 4) {
+                    //下滑速度快，或者下滑距离超过屏幕高度的一半，就关闭
                     if (iAnimClose != null) {
                         iAnimClose.onPictureRelease(currentShowView);
                     }

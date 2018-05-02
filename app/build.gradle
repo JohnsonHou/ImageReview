@@ -28,5 +28,6 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:recyclerview-v7:25.3.1'
     compile 'com.github.bumptech.glide:glide:3.7.0'
-    compile project(':imagereview')
+//    compile project(':imagereview')
+    compile 'com.jchou.android.imagereview:imagereview:1.0.1'
 }

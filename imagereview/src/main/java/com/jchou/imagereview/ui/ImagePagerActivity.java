@@ -64,11 +64,11 @@ public class ImagePagerActivity extends AppCompatActivity implements ImageDetail
         super.onCreate(savedInstanceState);
         // 隐藏标题栏
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        //设置使用分享元素
-        getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
         // 隐藏状态栏
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        //设置使用分享元素
+        getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
 
         setContentView(R.layout.image_detail_page);
 
